@@ -37,7 +37,7 @@ public class AndroidTests extends TestBase {
                         find(id("org.wikipedia.alpha:id/view_list_card_header_menu")).click()
         );
         step("Click 'Hide this card''", () ->
-                $(id("org.wikipedia.alpha:id/view_list_card_header_menu")).click()
+                $(id("org.wikipedia.alpha:id/title")).click()
         );
         step("Cheack that featured article is not displayed", () ->
                 $(id("org.wikipedia.alpha:id/view_featured_article_card_header")).shouldNotBe(visible));
