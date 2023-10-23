@@ -34,7 +34,7 @@ public class AndroidTests extends TestBase {
     void hideFeaturedArticleTest() {
         step("Click featured article options dots", () ->
                 $(id("org.wikipedia.alpha:id/view_featured_article_card_header")).
-                        $(id("org.wikipedia.alpha:id/view_list_card_header_menu")).click()
+                        find(id("org.wikipedia.alpha:id/view_list_card_header_menu")).click()
         );
         step("Click 'Hide this card''", () ->
                 $(id("org.wikipedia.alpha:id/view_list_card_header_menu")).click()
