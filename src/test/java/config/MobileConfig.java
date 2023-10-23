@@ -6,7 +6,6 @@ import org.aeonbits.owner.Config;
         "classpath:${env}.properties"
 })
 public interface MobileConfig extends Config {
-
     @Key("device")
     @DefaultValue("Pixel 5")
     String getDevice();

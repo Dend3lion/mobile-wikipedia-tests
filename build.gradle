@@ -3,7 +3,6 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
     id "io.freefair.lombok" version "6.0.0-m2"
 }
-
 repositories {
     mavenCentral()
 }
@@ -15,7 +14,7 @@ def selenideVersion = "6.13.0",
     slf4jVersion = "2.0.7"
 
 allure {
-    report {
+    allureReport {
         version.set(allureVersion)
     }
     adapter {
@@ -29,7 +28,7 @@ allure {
 }
 
 dependencies {
-    testImplementation(
+    testImplementation (
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:8.3.0",
@@ -47,8 +46,13 @@ dependencies {
     )
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 
     testLogging {
         lifecycle {
@@ -63,7 +67,6 @@ task android_test(type: Test) {
         includeTags("android")
     }
 }
-
 task ios_test(type: Test) {
     useJUnitPlatform {
         includeTags("ios")
