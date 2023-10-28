@@ -21,7 +21,8 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         switch (deviceHost) {
-            case "browserstack":
+            case "android":
+            case "ios":
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
             case "emulator":
@@ -40,15 +41,11 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-        switch (deviceHost) {
-            case "browserstack":
-                Attach.screenshotAs("Last screenshot");
-                break;
-            case "emulator":
-                String sessionId = Selenide.sessionId().toString();
-                Attach.addVideo(sessionId);
-                break;
+        if (deviceHost.equals("ios") || deviceHost.equals("android")) {
+            String sessionId = Selenide.sessionId().toString();
+            Attach.addVideo(sessionId);
         }
+        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
     }

@@ -14,7 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class BrowserstackTests extends TestBase {
     @Test
-    @Tag("browserstack")
     @Tag("android")
     @DisplayName("Open article from search")
     void openSearchArticleTest() {
@@ -32,7 +31,6 @@ public class BrowserstackTests extends TestBase {
     }
 
     @Test
-    @Tag("browserstack")
     @Tag("android")
     @DisplayName("Hide featured article")
     void hideFeaturedArticleTest() {
@@ -48,7 +46,6 @@ public class BrowserstackTests extends TestBase {
     }
 
     @Test
-    @Tag("browserstack")
     @Tag("ios")
     @DisplayName("Check search result")
     void enterTextTest() {

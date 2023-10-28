@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:browserstack.properties"
+        "classpath:${deviceHost}.properties"
 })
 public interface BrowserstackConfig extends Config {
     @Key("device")
@@ -11,7 +11,7 @@ public interface BrowserstackConfig extends Config {
     String getDevice();
 
     @Key("os_version")
-    @DefaultValue("12")
+    @DefaultValue("12.0")
     String getVersion();
 
     @Key("appUrl")
