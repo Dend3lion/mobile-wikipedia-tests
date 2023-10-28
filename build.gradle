@@ -28,7 +28,7 @@ allure {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:8.3.0",
@@ -62,13 +62,20 @@ tasks.withType(Test) {
     }
 }
 
-task android_test(type: Test) {
+task browserstack_android_test(type: Test) {
     useJUnitPlatform {
-        includeTags("android")
+        includeTags("browserstack & android")
     }
 }
-task ios_test(type: Test) {
+
+task browserstack_ios_test(type: Test) {
     useJUnitPlatform {
-        includeTags("ios")
+        includeTags("browserstack & ios")
+    }
+}
+
+task emulator_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("emulator")
     }
 }
