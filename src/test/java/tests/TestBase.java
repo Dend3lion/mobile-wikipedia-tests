@@ -30,7 +30,6 @@ public class TestBase {
                 break;
         }
         Configuration.browserSize = null;
-        Configuration.timeout = 30000;
     }
 
     @BeforeEach
@@ -41,12 +40,18 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-        if (deviceHost.equals("ios") || deviceHost.equals("android")) {
-            String sessionId = Selenide.sessionId().toString();
-            Attach.addVideo(sessionId);
+        switch (deviceHost) {
+            case "android":
+            case "ios":
+                String sessionId = Selenide.sessionId().toString();
+                Attach.pageSource();
+                Attach.addVideo(sessionId);
+                break;
+            case "local":
+                Attach.screenshotAs("Last screenshot");
+                Attach.pageSource();
+                break;
         }
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
         closeWebDriver();
     }
 }
