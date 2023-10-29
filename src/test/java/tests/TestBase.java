@@ -47,7 +47,7 @@ public class TestBase {
                 Attach.pageSource();
                 Attach.addVideo(sessionId);
                 break;
-            case "local":
+            case "emulator":
                 Attach.screenshotAs("Last screenshot");
                 Attach.pageSource();
                 break;
