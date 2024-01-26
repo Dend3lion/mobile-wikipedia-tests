@@ -21,8 +21,7 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         switch (deviceHost) {
-            case "android":
-            case "ios":
+            case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
             case "emulator":
@@ -41,8 +40,7 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         switch (deviceHost) {
-            case "android":
-            case "ios":
+            case "browserstack":
                 String sessionId = Selenide.sessionId().toString();
                 Attach.pageSource();
                 Attach.addVideo(sessionId);
