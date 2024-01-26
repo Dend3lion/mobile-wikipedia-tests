@@ -14,7 +14,6 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("mobile")
 @Epic("Android")
-@Feature("Main page")
 @Owner("Denis Bashkatov")
 public class WikipediaTests extends TestBase {
     MainPage mainPage = new MainPage();
@@ -22,6 +21,7 @@ public class WikipediaTests extends TestBase {
     SettingsPage settingsPage = new SettingsPage();
 
     @Test
+    @Feature("Main page")
     @DisplayName("Successful article search")
     void successfulSearchTest() {
         step("Click search bar", () -> mainPage.clickOnSearchBar());
@@ -30,6 +30,7 @@ public class WikipediaTests extends TestBase {
     }
 
     @Test
+    @Feature("Main page")
     @DisplayName("Check main page sections")
     void checkMainPageSections() {
         step("Check that In The News section displayed", () -> mainPage.checkCardPresence("In the News"));
@@ -37,6 +38,7 @@ public class WikipediaTests extends TestBase {
     }
 
     @Test
+    @Feature("Main page")
     @DisplayName("Hide featured article")
     void hideFeaturedArticleTest() {
         step("Click featured article options dots", () -> mainPage.openFeaturedArticleOptions());
@@ -45,6 +47,7 @@ public class WikipediaTests extends TestBase {
     }
 
     @Test
+    @Feature("Settings")
     @DisplayName("Changing the language")
     void addLanguageTest() {
         step("Click menu button", () -> settingsPage.clickMenuButton());
