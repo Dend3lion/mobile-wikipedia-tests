@@ -48,7 +48,7 @@ public class WikipediaTests extends TestBase {
 
     @Test
     @Feature("Settings")
-    @DisplayName("Changing the language")
+    @DisplayName("Change language")
     void addLanguageTest() {
         step("Click menu button", () -> settingsPage.clickMenuButton());
         step("Click settings button", () -> settingsPage.clickSettingsButton());
